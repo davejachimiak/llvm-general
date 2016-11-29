@@ -92,7 +92,7 @@ main = do
          return llvmConfig
       addLLVMToLdLibraryPath configFlags = do
         llvmConfig <- getLLVMConfig configFlags
-        [libDir] <- liftM lines $ llvmConfig ["--libdir"]
+        [libDir] <- liftM lines $ llvmConfig ["--libdir", "--includedir"]
         addToLdLibraryPath libDir
          
   defaultMainWithHooks simpleUserHooks {
